@@ -5,8 +5,10 @@ import sqlite3
 def create_db():
     conn = sqlite3.connect('card.s3db')
     cur = conn.cursor()
-    cur.execute('CREATE TABLE IF NOT EXISTS card (id INT, number TEXT, pin TEXT, balance INT DEFAULT 0);')
+    cur.execute('CREATE TABLE IF NOT EXISTS card (id INTEGER PRIMARY KEY AUTOINCREMENT, number TEXT, pin TEXT, balance INTEGER DEFAULT 0);')
     conn.commit()
+    # cur.execute('SELECT * FROM card')
+    # print(cur.fetchall())
 
 
 class Bank:
@@ -97,3 +99,4 @@ class Bank:
 
 create_db()
 b = Bank()
+
