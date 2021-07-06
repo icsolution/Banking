@@ -104,7 +104,7 @@ class Bank:
             self.account_status(inquiry)
         elif choice == '2':
             income = int(input('\nEnter income:\n'))
-            self.cur.execute(f'UPDATE card SET balance + {income} WHERE number = {card};')
+            self.cur.execute(f'UPDATE card SET balance = balance + {income} WHERE number = {card};')
             self.conn.commit()
             print('Income was added!\n')
             self.account_status(inquiry)
